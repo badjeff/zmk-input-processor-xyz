@@ -4,7 +4,7 @@ This module is used to quantize X and Y value set to fit inside single payload o
 
 ## What it does
 
-It packs both X and Y axis value set (two `int16_t`) from pointing device driver into one `uint32_t` (as Z axis value code) on split peripheral. Only 8 byte will be transmitted and  resurrect in central. Roughly, shall save up to 50% packet size of 2D coordication.
+It packs both X and Y axis value set (two `int16_t`) from pointing device driver into one `uint32_t` (as Z axis value code) on split peripheral. Only 8 byte will be transmitted and  resurrected in central. Roughly, shall save up to 50% packet size of 2d coordination.
 
 ## Installation
 
