@@ -46,11 +46,22 @@ Roughly, `overlay` of the split-peripheral trackball should look like below.
   };
 };
 
-/* Add the processor on peripheral(s) overlay */
+/* Add the compressor (zip_xyz) on peripheral(s) overlay */
 #include <input/processors/xyz.dtsi>
-
 &trackball_split {
   device = <&trackball>;
   input-processors = <&zip_xyz>;;
 };
+
+/* Add the decompressor (zip_zxy) on central overlay */
+#include <input/processors/xyz.dtsi>
+tball1_mmv_il {
+  compatible = "zmk,input-listener";
+  device = <&trackball_split>;
+  
+  /* &zip_zxy : decompressor */
+  /* &zip_report_rate_limit : see https://github.com/badjeff/zmk-input-processor-report-rate-limit */
+  input-processors = <&zip_zxy>, <&zip_report_rate_limit 8>;
+};
+
 ```
