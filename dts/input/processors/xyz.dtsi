@@ -1,0 +1,23 @@
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+/ {
+    /* compress xy to z */
+    /omit-if-no-ref/ zip_xyz: zip_xyz {
+        compatible = "zmk,input-processor-xyz";
+        #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>;
+        xy-codes = <INPUT_REL_X INPUT_REL_Y>;
+        z-code = <INPUT_REL_Z>;
+    };
+
+    /* decompress z to xy */
+    /omit-if-no-ref/ zip_zxy: zip_zxy {
+        compatible = "zmk,input-processor-xyz";
+        #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>;
+        decompress;
+        z-code = <INPUT_REL_Z>;
+        xy-codes = <INPUT_REL_X INPUT_REL_Y>;
+    };
+};

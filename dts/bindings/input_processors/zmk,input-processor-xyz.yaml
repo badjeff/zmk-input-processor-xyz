@@ -1,0 +1,20 @@
+# Copyright (c) 2024, The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Input Processor for compressing OTA payload from split peripheral
+
+compatible: "zmk,input-processor-xyz"
+
+include: ip_zero_param.yaml
+
+properties:
+  type:
+    type: int
+  decompress:
+    type: boolean
+  z-code:
+    type: int
+    required: true
+  xy-codes:
+    type: array
+    required: true
